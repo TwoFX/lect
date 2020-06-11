@@ -1,6 +1,18 @@
 \documentclass{article}
+
 \title{\VAR{info['title']}}
 \author{\VAR{info['lecturer']}}
+\BLOCK{if 'date' in info}
+\date{\VAR{info['date']}}
+\BLOCK{endif}
+
 \begin{document}
 \maketitle
+\tableofcontents
+
+\BLOCK{if 'rendered_children' in info}
+\BLOCK{for child in info['rendered_children']}
+\VAR{child}
+\BLOCK{endfor}
+\BLOCK{endif}
 \end{document}
