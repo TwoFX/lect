@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "lect"
+version = "0.1.2"
+description = ""
+authors = ["Markus Himmel <markus@himmel-villmar.de>"]
+include = ["lect/templates-latex/*"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+Click = "^7.1.2"
+PyYAML = "^5.3.1"
+jinja2 = "^2.11.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.scripts]
+lect = 'lect.cli:main'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
