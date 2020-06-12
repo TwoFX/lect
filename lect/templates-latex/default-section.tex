@@ -1,12 +1,10 @@
-\VAR{readf('preamble.tex')}
-
-\begin{document}
-\maketitle
-\tableofcontents
+\\VAR{info['type']}{\VAR{info['title']}}
+%% if 'label' in info
+\label{\VAR{info['label']}}
+%% endif
 
 %% if 'rendered_children' in info
 %%   for child in info['rendered_children']
 \VAR{child}
 %%   endfor
 %% endif
-\end{document}

@@ -1,0 +1,11 @@
+\begin{\VAR{info['type']}}\VAR{'[' + info['title'] + ']' if 'title' in info else ''}
+%% if 'label' in info
+\label{\VAR{info['label']}}
+%% endif
+\VAR{readf('statement.tex')}\end{\VAR{info['type']}}
+%% if 'proofs' in info
+%%   for pf, text in info['proofs'].items()
+\begin{proof}[\VAR{text}]
+\VAR{readf(pf + '.tex')}\end{proof}
+%%   endfor
+%% endif

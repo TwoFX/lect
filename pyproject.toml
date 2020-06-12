@@ -3,7 +3,7 @@ name = "lect"
 version = "0.1.3"
 description = ""
 authors = ["Markus Himmel <markus@himmel-villmar.de>"]
-include = ["lect/templates-latex/*"]
+include = ["lect/templates-latex/*.tex"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
