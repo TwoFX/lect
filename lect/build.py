@@ -1,10 +1,7 @@
 from pathlib import Path
 from os import path
-import click, yaml, jinja2, tempfile, subprocess, shutil
-
-def get_node_info(current_directory):
-    with (current_directory / 'info.yaml').open() as f:
-        return yaml.safe_load(f)
+import jinja2, tempfile, subprocess, shutil
+from lect.util import get_node_info
 
 latex_env = jinja2.Environment(
     loader = jinja2.PackageLoader(__name__, 'templates-latex'),
