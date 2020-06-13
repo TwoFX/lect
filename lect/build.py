@@ -28,7 +28,7 @@ def handle(current_directory):
     try:
         template = latex_env.get_template(info['type'] + '.tex')
     except jinja2.exceptions.TemplateNotFound:
-        if 'children' in info:
+        if info['section']:
             template = latex_env.get_template('default-section.tex')
         else:
             template = latex_env.get_template('default.tex')
