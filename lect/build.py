@@ -25,6 +25,7 @@ def handle(current_directory):
 
     if 'children' in info:
         info['rendered_children'] = map(lambda subdir: handle(current_directory / subdir), info['children'])
+
     try:
         template = latex_env.get_template(info['type'] + '.tex')
     except jinja2.exceptions.TemplateNotFound:

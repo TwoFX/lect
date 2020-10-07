@@ -1,8 +1,8 @@
 from pathlib import Path
 from lect.util import get_node_info
-import yaml
+import click, yaml
 
-def add(name, type, category):
+def add(name, type, category, number):
     info = get_node_info(Path('.'))
 
     if not 'children' in info:
@@ -18,6 +18,9 @@ def add(name, type, category):
     newinfo['type'] = type
     newinfo['label'] = name
 
+    if number != -1:
+        newinfo['number'] = number
+
     if category == 'section':
         newinfo['section'] = True
     elif category == 'entry':
@@ -25,7 +28,13 @@ def add(name, type, category):
     else:
         newinfo['section'] = type in ['chapter', 'section', 'subsection', 'subsubsection', 'subsubsubsection', 'paragraph']
 
+    if newinfo['section']:
+        newinfo['title'] = click.prompt('Title', type=str, default=name)
+
     with (Path(name) / 'info.yaml').open('w') as f:
         f.write(yaml.dump(newinfo, default_flow_style = False, sort_keys = False))
+
+    if not newinfo['section']:
+        Path(Path(name) / 'statement.tex').touch()
 
     print(f"Created a new {type} called {name}.")
