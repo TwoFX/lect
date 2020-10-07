@@ -1,3 +1,6 @@
+%% if 'number' in info
+\setcounter{\VAR{info['type']}}{\VAR{info['number'] - 1}}
+%% endif
 \\VAR{info['type']}{\VAR{info['title']}}
 %% if 'label' in info
 \label{\VAR{info['label']}}
