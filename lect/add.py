@@ -5,6 +5,9 @@ import click, yaml
 def add(name, type, category, numbered, number):
     info = get_node_info(Path('.'))
 
+    if 'section' in info and not info['section']:
+        click.confirm('Trying to create a child of a non-section. Do you want to continue?', abort=True)
+
     if not 'children' in info:
         info['children']  = []
     info['children'].append(name)
