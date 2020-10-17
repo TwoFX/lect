@@ -1,11 +1,11 @@
 %% if 'number' in info
 \setcounter{definition}{\VAR{info['number'] - 1}}
 %% endif
-\begin{\VAR{info['type']}}\VAR{'[' + info['title'] + ']' if 'title' in info else ''}
+\begin{\VAR{info['type']}\VAR{'*' if 'numbered' in info and not info['numbered'] else ''}}\VAR{'[' + info['title'] + ']' if 'title' in info else ''}
 %% if 'label' in info
 \label{\VAR{info['label']}}
 %% endif
-\VAR{readf('statement.tex')}\end{\VAR{info['type']}}
+\VAR{readf('statement.tex')}\end{\VAR{info['type']}\VAR{'*' if 'numbered' in info and not info['numbered'] else ''}}
 %% if 'proofs' in info
 %%   for pf, text in info['proofs'].items()
 \begin{proof}[\VAR{text}]

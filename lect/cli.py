@@ -17,5 +17,6 @@ def build(output, tex):
 @click.option('--autodetect', 'category', flag_value='autodetect', default=True, help='Try to infer from the type whether to create a section or entry (this is the default).')
 @click.option('--entry', '-E', 'category', flag_value='entry', help='Create an entry.')
 @click.option('--number', '-n', default=-1, help="The number of the entry. Do not specify to let LaTeX figure it out on its own.")
-def add(type, name, category, number):
-    lect.add.add(name, type, category, number)
+@click.option('--numbered/--unnumbered', ' /-u', 'numbered', default=True, help='Enables or disables numbering of entries')
+def add(type, name, category, numbered, number):
+    lect.add.add(name, type, category, numbered, number)

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lect"
-version = "0.1.6"
+version = "0.1.7"
 description = "Command-line tool for organizing lecture notes"
 authors = ["Markus Himmel <markus@himmel-villmar.de>"]
 include = ["lect/templates-latex/*.tex"]

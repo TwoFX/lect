@@ -2,7 +2,7 @@ from pathlib import Path
 from lect.util import get_node_info
 import click, yaml
 
-def add(name, type, category, number):
+def add(name, type, category, numbered, number):
     info = get_node_info(Path('.'))
 
     if not 'children' in info:
@@ -17,6 +17,7 @@ def add(name, type, category, number):
     newinfo = {}
     newinfo['type'] = type
     newinfo['label'] = name
+    newinfo['numbered'] = numbered
 
     if number != -1:
         newinfo['number'] = number
